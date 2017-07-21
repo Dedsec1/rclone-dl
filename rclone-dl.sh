@@ -27,11 +27,11 @@ case $CHOICE in
             bash <(curl -Ss https://raw.githubusercontent.com/DEDS3C/rclone-dl/master/rclone.sh) ncw/rclone freebsd-386 zip
             unzip -o rclone-*-freebsd-386.zip
             cd rclone-*-freebsd-386
-            echo "Please elevate to sudo / root in order to copy files to your bin folder"
-            su
-            cp rclone /usr/bin
-            chown $USER:$USER /usr/bin/rclone
-            chmod 755 /usr/bin/rclone
+            echo "Please elevate to do / root in order to copy files to your bin folder"
+            mkdir $HOME/bin
+            cp rclone $HOME/bin
+            chown $USER:$USER $HOME/bin/rclone
+            chmod 755 $HOME/bin/rclone
             ;;
         2)
             echo "Installing rclone FreeBSD AMD 64"
@@ -39,11 +39,11 @@ case $CHOICE in
             bash <(curl -Ss https://raw.githubusercontent.com/DEDS3C/rclone-dl/master/rclone.sh) ncw/rclone free-amd64 zip
             unzip -o rclone-*-freebsd-amd64.zip
             cd rclone-*-freebsd-amd64
-            echo "Please elevate to sudo / root in order to copy files to your bin folder"
-            su
-            cp rclone /usr/bin
-            chown $USER:$USER /usr/bin/rclone
-            chmod 755 /usr/bin/rclone
+            echo "Please elevate to do / root in order to copy files to your bin folder"
+            mkdir $HOME/bin
+            cp rclone $HOME/bin/
+            chown $USER:$USER $HOME/bin
+            chmod 755 /$HOME/bin/rclone
             ;;
         3)
             echo "Installing rclone FreeBSD ARM"
@@ -51,11 +51,12 @@ case $CHOICE in
             bash <(curl -Ss https://raw.githubusercontent.com/DEDS3C/rclone-dl/master/rclone.sh) ncw/rclone freebsd-arm zip
             unzip -o rclone-*-freebsd-arm.zip
             cd rclone-*-freebsd-arm
-            echo "Please elevate to sudo / root in order to copy files to your bin folder"
-            su
+            echo "Please elevate to do / root in order to copy files to your bin folder"
+            mkdir $HOME/bin
             cp rclone /usr/local/sbin
-            chown $USER:$USEr /usr/bin/rclone
-            chmod 755 /usr/bin/rclone
+            mkdir $HOME/bin
+            chown $USER:$USEr $HOME/bin/rclone
+            chmod 755 $HOME/bin/rclone
             ;;
 
         4)
@@ -65,21 +66,24 @@ case $CHOICE in
             bash <(curl -Ss https://raw.githubusercontent.com/DEDS3C/rclone-dl/master/rclone.sh) ncw/rclone linux-386 zip
             unzip -o rclone-*-linux-386.zip
             cd rclone-*-linux-386
-            sudo cp rclone /usr/bin/
-            sudo chown root:root /usr/bin/rclone
-            sudo chmod 755 /usr/bin/rclone
+            mkdir $HOME/bin
+            do cp rclone $HOME/bin/
+            do chown $USER:$USER $HOME/bin/rclone
+            do chmod 755 $HOME/bin/rclone
             ;;
         5)
             echo "Installing rclone Linux AMD64"
             rm -rf rclone*.zip
             bash <(curl -Ss https://raw.githubusercontent.com/DEDS3C/rclone-dl/master/rclone.sh) ncw/rclone linux-amd64 zip
             unzip -o rclone-*-linux-amd64.zip
-            echo "Please elevate to sudo / root in order to copy files to your bin folder"
-            su
+            echo "Please elevate to do / root in order to copy files to your bin folder"
+            mkdir $HOME/bin
             cd rclone-*-linux-amd64
-            cp rclone /usr/bin/
-            chown $USER:$USER /usr/bin/rclone
-            chmod 755 /usr/bin/rclone
+            cp rclone $HOME/bin/
+            chown $USER:$USER $HOME/bin/rclone
+            chmod 755 $HOME/bin/rclone
+            alias rclone="$HOME/bin/rclone" 
+
             ;;
         6)
 
@@ -87,10 +91,11 @@ case $CHOICE in
             rm -rf rclone*.zip
             bash <(curl -Ss https://raw.githubusercontent.com/DEDS3C/rclone-dl/master/rclone.sh) ncw/rclone linux-arm zip
             unzip -o rclone-*-linux-arm.zip
+            mkdir $HOME/bin
             cd rclone-*-linux-arm
-            sudo cp rclone /usr/bin/
-            sudo chown root:root /usr/bin/rclone
-            sudo chmod 755 /usr/bin/rclone
+            do cp rclone $HOME/bin/
+            do chown $USER:$USER $HOME/bin/rclone
+            do chmod 755 $HOME/bin/rclone
             ;;
 
 
